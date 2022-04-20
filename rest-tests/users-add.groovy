@@ -1,8 +1,11 @@
 @Grab(group = 'org.codehaus.groovy.modules.http-builder', module = 'http-builder', version = '0.7.1')
 import groovyx.net.http.HTTPBuilder
 
+
 try {
-    new HTTPBuilder('http://localhost:8080').post(
+    httpBuilder = new HTTPBuilder('http://localhost:8080')
+    httpBuilder.auth.basic("root@root.com", "rootpass")
+    httpBuilder.post(
             path: '/users',
             requestContentType: 'application/json',
             body: [
@@ -11,5 +14,5 @@ try {
             ]
     )
 } catch (e) {
-    print "Request error with status ${e.getResponse().getStatus()}"
+    print "Request error with status ${e.getStatusCode()}"
 }

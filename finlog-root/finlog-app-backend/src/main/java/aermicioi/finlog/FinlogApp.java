@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-class FinlogApplication {
+class FinlogApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(FinlogApplication.class);
+        SpringApplication.run(FinlogApp.class);
     }
 
 }

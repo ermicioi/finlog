@@ -7,3 +7,7 @@ CREATE TABLE users
      email        VARCHAR(255) NOT NULL,
      password     VARCHAR(255) NOT NULL
   );
+
+INSERT INTO users (created_time, updated_time, email, password)
+    VALUES
+    (now(), now(), 'root@root.com', 'rootpass')

@@ -9,6 +9,8 @@ public interface UserService {
 
     void addUser(UserAddRequest request);
 
+    UserEntity getUser(String email);
+
     @Builder
     @Value
     class UserAddRequest {

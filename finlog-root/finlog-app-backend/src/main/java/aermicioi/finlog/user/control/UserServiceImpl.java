@@ -1,5 +1,6 @@
 package aermicioi.finlog.user.control;
 
+import aermicioi.finlog.common.NotFoundException;
 import aermicioi.finlog.user.model.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,12 @@ class UserServiceImpl implements UserService {
                 .password(request.getPassword()) // TODO Add hashing of the password
                 .build();
         userRepository.save(userEntity);
+    }
+
+    @Override
+    public UserEntity getUser(final String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException("Cannot find user with email '%s'", email));
     }
 
 }
